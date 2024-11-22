@@ -10,7 +10,7 @@ const authRoutes = require("./routes/auth");
 const groupRoutes = require("./routes/group");
 const resourceRoutes = require("./routes/resource");
 const { saveMessageToDataBase } = require("./controllers/chatController");
-
+const profileRoutes = require("./routes/profileRoutes");
 dotenv.config();
 
 
@@ -28,7 +28,7 @@ app.use(express.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5174",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -77,7 +77,7 @@ app.use("/api/chat", require("./routes/routing.js"));
 app.use("/api/auth", authRoutes);
 app.use("/api/groups", groupRoutes);
 app.use("/api/resources", resourceRoutes);
-
+app.use("/api/profile", profileRoutes);
 // Start the server
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {

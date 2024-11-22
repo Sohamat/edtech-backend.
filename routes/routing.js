@@ -4,4 +4,5 @@ const router = express.Router();
 router.route("/getAllRooms").get(getRoomNames);
 router.route("/:roomName").get(getMessagesByRoom);
 router.route("/createRoom").post(createRoom);
+
 module.exports = router;
